@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action='' method="get">
+        <a href="{% url "index" %}">Bosh sahifaga qaytish</a>
+        {% csrf_token %}
+        <p>
+            <label for="position">Position:</label>
+            <input type="text" value='{{params.pos}}' name="position" id="position">
+        </p>
+
+        <p>
+            <label for="min">Min:</label>
+            <input type="number" value='{{params.min}}' name="min" id="min">
+        </p>
+
+        <p>
+            <label for="max">Max:</label>
+            <input type="number" value='{{params.max}}' name="max" id="max">
+        </p>
+
+        <p>
+            <label for="city">City:</label>
+            <input type="text" value='{{params.city}}' name="city" id="city">
+        </p>
+        
+        <button type='submit'>qidirish</button>
+    </form>
+    <div>
+        <h1>Barcha xodimlar</h1>
+        {% for xodim in xodimlar %}
+        <h3>Xodim: {{xodim.id}} - {{xodim.name}}</h3>
+        <p>Yoshi: {{xodim.age}}</p>
+        <p>Lavozimi: {{xodim.position}} as {{xodim.department}}</p>
+        <p>Maoshi: {{xodim.salary}}</p>
+        <p>Shahri: {{xodim.city}}</p>
+        <p>Ishga kirgan sanasi: {{xodim.join_date}}</p>
+        {% empty %}
+            <p>Qidiruv bo'yicha xodimlar topilmadi!</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href=" {% url "create" %}">Xodim qo'shish</a>
+    <a href=" {% url "search" %}">Xodim qidirish</a>
+    <h1>Barcha xodimlar</h1>
+    {% for xodim in xodimlar %}
+    <a href="{% url "xodim" xodim.id %}"><h3>Xodim: {{xodim.id}} - {{xodim.name}}</h3></a>
+    <p>Yoshi: {{xodim.age}}</p>
+    <p>Lavozimi: {{xodim.position}} as {{xodim.department}}</p>
+    <p>Maoshi: {{xodim.salary}}</p>
+    <p>Shahri: {{xodim.city}}</p>
+    <p>Ishga kirgan sanasi: {{xodim.join_date}}</p>
+    <a href="{% url "edit" xodim.id %}">Tahrirlash</a>
+    <a href="{% url "delete" xodim.id %}">Delete</a>
+    {% empty %}
+        <p>Hozircha xodimlar mavjud emas!</p>
+    {% endfor %}
+    
+</body>
+</html>

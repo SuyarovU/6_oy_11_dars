@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="{% url "index" %}">Bosh sahifaga qaytish</a>
+    <h1>Statistika</h1>
+    <p>Jami: {{stat.soni}}</p>
+    <p>O'rtacha maosh: {{stat.avg}}</p>
+    <p>Min maosh: {{stat.min}}</p>
+    <p>Max maosh: {{stat.max}}</p>
+</body>
+</html>
